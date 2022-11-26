@@ -66,12 +66,6 @@ app.get("/", function(req, res) {
             res.render("list", { listTitle: "Today", newListItems: foundItems})
         }
     })
-
-    // List.deleteMany({name: "home"}, function (err) { 
-    //     if(!err) {
-    //         console.log("Deleted");
-    //     }
-    //  })
 })
 
 app.post("/", function(req, res) {
@@ -147,20 +141,11 @@ app.post("/delete", function (req, res) {
     
  })
 
+ let port = process.env.PORT
+ if(port == null || port == "") {
+    port = 3000
+ }
 
-// app.post("/work", function (req, res) { 
-//     let item = req.body.newItem
-//     workItems.push(item)
-
-//     res.redirect("/work")
-//  })
-
-// app.get("/about", function(req, res) {
-//     res.render("about")
-// })
-
-
-
-app.listen(3000, function() {
-    console.log("Server is started on port 3000");
+app.listen(port, function() {
+    console.log("Server has started successfully");
 })
